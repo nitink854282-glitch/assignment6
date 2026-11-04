@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flexbox Practice Pack</title>
+
+<style>
+
+:root {
+    --primary: #17345f;
+    --dark: #17233e;
+    --light: #e0f1f7;
+    --text: #31577d;
+    --border: #c4d9e5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eaf2f6;
+    color: var(--text);
+    padding: 30px;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    background: #f8f8f1;
+    border: 1px solid var(--border);
+    padding: 30px;
+}
+
+.top-heading {
+    margin-bottom: 25px;
+}
+
+.top-heading h4 {
+    color: var(--primary);
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.top-heading h1 {
+    font-size: 30px;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.top-heading p {
+    font-size: 14px;
+}
+
+.page-title {
+    font-size: 14px;
+    color: var(--primary);
+    margin: 20px 0 12px;
+    font-weight: bold;
+}
+
+/* 01 MENU */
+
+.menu {
+    background: var(--dark);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu h3 {
+    color: white;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.menu-links {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-links a {
+    color: #b5c8dd;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.menu-links a:hover {
+    color: white;
+}
+
+.description {
+    font-size: 13px;
+    margin: 12px 0 25px;
+}
+
+/* 02 LOGIN */
+
+.login-area {
+    background: #e4f0f4;
+    min-height: 310px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.login-card {
+    width: 250px;
+    background: #fffdf5;
+    padding: 18px;
+    border-radius: 5px;
+}
+
+.login-card h2 {
+    color: var(--primary);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.login-card label {
+    display: block;
+    font-size: 12px;
+    margin: 10px 0 5px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+}
+
+.login-card button {
+    width: 100%;
+    padding: 9px;
+    background: #17628c;
+    color: white;
+    border: none;
+    margin-top: 15px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* 03 PRODUCTS */
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.product-card {
+    flex: 1 1 calc(25% - 12px);
+    min-width: 150px;
+    background: #fffdf5;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 8px;
+}
+
+.product-image {
+    height: 65px;
+    background: #a9d8e9;
+    position: relative;
+    overflow: hidden;
+}
+
+.sun {
+    position: absolute;
+    right: 25px;
+    top: 8px;
+    width: 22px;
+    height: 14px;
+    background: #f4d98a;
+    border-radius: 50%;
+}
+
+.mountain-one {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 65%;
+    height: 43px;
+    background: #17345f;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.mountain-two {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65%;
+    height: 35px;
+    background: #263e68;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.product-card h3 {
+    font-size: 14px;
+    margin-top: 5px;
+    color: var(--primary);
+}
+
+.product-card p {
+    font-size: 13px;
+    margin-top: 3px;
+}
+
+/* 04 NAVBAR HERO */
+
+.store-navbar {
+    background: #17345f;
+    color: white;
+    padding: 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.store-navbar h3 {
+    font-size: 14px;
+}
+
+.store-links {
+    display: flex;
+    gap: 15px;
+}
+
+.store-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.hero {
+    background: #edf5f7;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.hero h2 {
+    color: #527da5;
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.hero a {
+    display: inline-block;
+    background: #2783b1;
+    color: white;
+    padding: 10px 35px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.note {
+    background: #e2f0f5;
+    padding: 16px;
+    margin-top: 25px;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.footer-note {
+    font-size: 11px;
+    margin-top: 15px;
+    color: #8a9caf;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .menu,
+    .store-navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu-links,
+    .store-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .product-card {
+        flex: 1 1 calc(50% - 12px);
+        min-width: 120px;
+    }
+
+    .top-heading h1 {
+        font-size: 24px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- MAIN HEADING -->
+
+    <div class="top-heading">
+
+        <h4>BTECH YEAR 1 / HTML & CSS / ASSIGNMENT 07</h4>
+
+        <h1>Flexbox Practice Pack</h1>
+
+        <p>
+            Weeks 7-9 · Four separate page outputs · Illustrative expected output
+        </p>
+
+    </div>
+
+    <!-- 01 MENU -->
+
+    <h3 class="page-title">01 / menu.html</h3>
+
+    <nav class="menu">
+
+        <h3>CAMPUS MENU</h3>
+
+        <div class="menu-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </nav>
+
+    <p class="description">
+        Horizontal links with consistent spacing.
+    </p>
+
+
+    <!-- 02 LOGIN -->
+
+    <h3 class="page-title">02 / login.html</h3>
+
+    <div class="login-area">
+
+        <div class="login-card">
+
+            <h2>Welcome back</h2>
+
+            <form>
+
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    required
+                >
+
+                <button type="submit">Log In</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- 03 PRODUCTS -->
+
+    <h3 class="page-title">
+        03 / products.html · At least 8 wrapping items
+    </h3>
+
+    <div class="products">
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 01</h3>
+            <p>₹199</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 02</h3>
+            <p>₹249</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 03</h3>
+            <p>₹299</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 04</h3>
+            <p>₹349</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 05</h3>
+            <p>₹399</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 06</h3>
+            <p>₹449</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 07</h3>
+            <p>₹499</p>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <div class="sun"></div>
+                <div class="mountain-one"></div>
+                <div class="mountain-two"></div>
+            </div>
+            <h3>Product 08</h3>
+            <p>₹549</p>
+        </div>
+
+    </div>
+
+
+    <!-- 04 NAVBAR HERO -->
+
+    <h3 class="page-title">
+        04 / navbar-hero.html
+    </h3>
+
+    <nav class="store-navbar">
+
+        <h3>CAMPUS STORE</h3>
+
+        <div class="store-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+    </nav>
+
+    <section class="hero">
+
+        <h2>Small essentials. Big campus energy.</h2>
+
+        <p>
+            Everything you need for a productive semester.
+        </p>
+
+        <a href="#">Explore</a>
+
+    </section>
+
+
+    <!-- ASSIGNMENT NOTE -->
+
+    <div class="note">
+
+        Use justify-content, align-items, flex-direction,
+        flex-wrap, gap and flex-grow. The login card must
+        be centred in both directions. Resize products.html
+        to check wrapping.
+
+    </div>
+
+    <p class="footer-note">
+        Sample content and design. Follow ASSIGNMENTS.md
+        for code, Git and README requirements.
+    </p>
+
+</div>
+
+</body>
+</html>
